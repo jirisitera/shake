@@ -9,6 +9,8 @@ on:
       minecraft_version:
         description: "Supported MC version: (e.g. 26.1.2)"
         required: true
+permissions:
+  contents: write
 jobs:
   release:
     runs-on: ubuntu-latest
