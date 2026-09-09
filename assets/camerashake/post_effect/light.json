@@ -1,0 +1,30 @@
+{
+  "targets": {
+    "temp": {}
+  },
+  "passes": [
+    {
+      "vertex_shader": "camerashake:core/screenquad",
+      "fragment_shader": "camerashake:post/light",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "minecraft:main",
+          "bilinear": true
+        }
+      ],
+      "output": "temp"
+    },
+    {
+      "vertex_shader": "camerashake:core/screenquad",
+      "fragment_shader": "camerashake:core/clone",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "temp"
+        }
+      ],
+      "output": "minecraft:main"
+    }
+  ]
+}

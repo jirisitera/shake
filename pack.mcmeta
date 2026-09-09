@@ -1,0 +1,16 @@
+{
+  "pack": {
+    "description": [
+      {
+        "text": "Camera Shake by japicraft\n",
+        "color": "#ffc400"
+      },
+      {
+        "text": "vPACK_VERSION | GIT_HASH",
+        "color": "#adadad"
+      }
+    ],
+    "min_format": [96, 0],
+    "max_format": [98, 0]
+  }
+}
