@@ -9,15 +9,11 @@ on:
       minecraft_version:
         description: "Supported MC version: (e.g. 26.1.2)"
         required: true
-permissions:
-  contents: write
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
       - name: check version
         run: |
           if git rev-parse --verify 'refs/tags/${{ inputs.project_version }}' >/dev/null 2>&1; then
@@ -31,24 +27,14 @@ jobs:
           calculatedSha=$(git rev-parse --short ${{ github.sha }})
           sed -i "s/GIT_HASH/$calculatedSha/g" pack.mcmeta
           echo "Replaced GIT_HASH with $calculatedSha successfully!"
-      - uses: ComunidadAylas/PackSquash-action@v4
-        with:
-          packsquash_version: latest-unstable
-          options: options.toml
-          artifact_name: build
-  publish:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v8
-        with:
-          path: artifacts
+      - name: package resource pack
+        run: zip -r pack.zip assets LICENSE.txt pack.mcmeta pack.png README.md
       - uses: Kir-Antipov/mc-publish@v3
         with:
           name: Camera Shake v${{ inputs.project_version }} (for MC ${{ inputs.minecraft_version }}+)
           version: ${{ inputs.project_version }}
           files: |
-            artifacts/build/pack.zip
+            pack.zip
           loaders: |
             minecraft
           game-versions: ">=${{ inputs.minecraft_version }}"

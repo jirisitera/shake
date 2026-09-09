@@ -1,5 +1,0 @@
-pack_directory = '.'
-output_file_path = 'pack.zip'
-
-['**/*.{fsh,vsh,glsl}']
-force_include = true
