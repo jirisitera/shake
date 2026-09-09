@@ -33,7 +33,7 @@ jobs:
           echo "Replaced GIT_HASH with $calculatedSha successfully!"
       - uses: ComunidadAylas/PackSquash-action@v4
         with:
-          packsquash_version: latest
+          packsquash_version: latest-unstable
           options: options.toml
           artifact_name: build
   publish:
