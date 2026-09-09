@@ -11,6 +11,7 @@
       }
     ],
     "min_format": [96, 0],
-    "max_format": [98, 0]
+    "max_format": [98, 0],
+    "pack_format": 96
   }
 }
