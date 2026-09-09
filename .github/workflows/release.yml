@@ -30,7 +30,7 @@ jobs:
           sed -i "s/GIT_HASH/$calculatedSha/g" pack.mcmeta
           echo "Replaced GIT_HASH with $calculatedSha successfully!"
       - name: package resource pack
-        run: zip -r pack.zip assets LICENSE.txt pack.mcmeta pack.png README.md
+        run: zip -r camerashake.zip assets LICENSE.txt pack.mcmeta pack.png README.md
       - uses: Kir-Antipov/mc-publish@v3
         with:
           name: Camera Shake v${{ inputs.project_version }} (for MC ${{ inputs.minecraft_version }}+)
