@@ -36,7 +36,7 @@ jobs:
           name: Camera Shake v${{ inputs.project_version }} (for MC ${{ inputs.minecraft_version }}+)
           version: ${{ inputs.project_version }}
           files: |
-            pack.zip
+            camerashake.zip
           loaders: |
             minecraft
           game-versions: ">=${{ inputs.minecraft_version }}"
